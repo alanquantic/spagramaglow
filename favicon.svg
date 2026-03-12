@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="18" fill="#F5EFE5"/>
+  <circle cx="32" cy="32" r="20" fill="url(#glow)"/>
+  <circle cx="27" cy="26" r="7" fill="rgba(255,248,235,0.72)"/>
+  <defs>
+    <linearGradient id="glow" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F1CF93"/>
+      <stop offset="0.5" stop-color="#B98749"/>
+      <stop offset="1" stop-color="#8C5C35"/>
+    </linearGradient>
+  </defs>
+</svg>
