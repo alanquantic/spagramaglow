@@ -1211,27 +1211,33 @@ h3 {
     font-size: 0.98rem;
   }
 
+  .hero-actions {
+    position: relative;
+    z-index: 2;
+    gap: 0.85rem;
+  }
+
   .hero-visual {
-    min-height: 22.5rem;
-    margin-top: -2.8rem;
+    min-height: 21.5rem;
+    margin-top: 0.35rem;
   }
 
   .refraction-panel {
-    min-height: 20.75rem;
+    min-height: 19.85rem;
     padding: 1rem;
   }
 
   .product-stage {
-    min-height: 19rem;
+    min-height: 18.1rem;
   }
 
   .liquid-rings {
-    width: 16.5rem;
-    height: 16.5rem;
+    width: 15.75rem;
+    height: 15.75rem;
   }
 
   .hero-product-image {
-    width: min(15.25rem, 82vw);
+    width: min(14.6rem, 80vw);
     transform: rotate(-5deg) translateY(0.2rem);
   }
 
