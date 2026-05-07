@@ -1,6 +1,10 @@
 const Stripe = require("stripe");
 const { Resend } = require("resend");
-const { buildInternalNotification, buildOrderEmail } = require("../lib/order-email");
+const {
+  buildInternalNotificationEmail,
+  buildInternalNotificationText,
+  buildOrderEmail,
+} = require("../lib/order-email");
 
 function readRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -24,29 +28,29 @@ async function sendOrderEmails(session) {
     return;
   }
 
-  const customerEmail = session.customer_details && session.customer_details.email;
-
-  if (!customerEmail) {
-    console.warn("Stripe session has no customer email; skipping customer email.");
-    return;
-  }
-
+  const customerEmail =
+    (session.customer_details && session.customer_details.email) || session.customer_email;
   const resend = new Resend(process.env.RESEND_API_KEY);
   const from = process.env.RESEND_FROM_EMAIL || "SPAGRAMA <ventas@updates.spagrama.com>";
 
-  await resend.emails.send({
-    from,
-    to: customerEmail,
-    subject: "Tu compra GlowAge está confirmada",
-    html: buildOrderEmail(session),
-  });
+  if (customerEmail) {
+    await resend.emails.send({
+      from,
+      to: customerEmail,
+      subject: "Tu compra GlowAge está confirmada",
+      html: buildOrderEmail(session),
+    });
+  } else {
+    console.warn("Stripe session has no customer email; skipping customer email.");
+  }
 
   if (process.env.SPAGRAMA_NOTIFY_EMAIL) {
     await resend.emails.send({
       from,
       to: process.env.SPAGRAMA_NOTIFY_EMAIL,
       subject: "Nueva venta GlowAge",
-      text: buildInternalNotification(session),
+      html: buildInternalNotificationEmail(session),
+      text: buildInternalNotificationText(session),
     });
   }
 }
