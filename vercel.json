@@ -1,3 +1,16 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "spagrama.com"
+        }
+      ],
+      "destination": "https://www.spagrama.com/:path*",
+      "permanent": true
+    }
+  ]
 }

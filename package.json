@@ -1,0 +1,14 @@
+{
+  "name": "spagrama-glowage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing premium de SPAGRAMA GlowAge con Stripe Checkout y correos transaccionales.",
+  "scripts": {
+    "dev": "npx vercel dev",
+    "check": "node --check api/create-checkout-session.js && node --check api/stripe-webhook.js && node --check lib/order-email.js"
+  },
+  "dependencies": {
+    "resend": "^6.9.0",
+    "stripe": "^20.1.0"
+  }
+}

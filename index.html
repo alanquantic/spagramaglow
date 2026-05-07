@@ -12,6 +12,8 @@
       name="keywords"
       content="gel conductor facial, gel conductor para aparatología facial, gel conductor para dispositivos faciales, rutina facial en casa, cuidado facial premium, spa en casa"
     />
+    <link rel="canonical" href="https://www.spagrama.com/" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#eef1f4" />
     <meta property="og:title" content="SPAGRAMA | GlowAge" />
     <meta
@@ -19,6 +21,16 @@
       content="GlowAge de SPAGRAMA lleva la experiencia del spa a la comodidad de tu hogar con una rutina facial premium, sensorial y sofisticada."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.spagrama.com/" />
+    <meta property="og:image" content="https://www.spagrama.com/glowage-16-9.jpg" />
+    <meta property="og:locale" content="es_MX" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SPAGRAMA | GlowAge" />
+    <meta
+      name="twitter:description"
+      content="Gel conductor facial premium para rutinas con aparatología facial en casa."
+    />
+    <meta name="twitter:image" content="https://www.spagrama.com/glowage-16-9.jpg" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,6 +39,39 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "GlowAge",
+        "brand": {
+          "@type": "Brand",
+          "name": "SPAGRAMA"
+        },
+        "description": "Gel conductor facial premium para rutinas de aparatología facial en casa.",
+        "image": "https://www.spagrama.com/glowage-16-9.jpg",
+        "url": "https://www.spagrama.com/",
+        "offers": {
+          "@type": "Offer",
+          "price": "999",
+          "priceCurrency": "MXN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.spagrama.com/#comprar",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "MXN"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "MX"
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="page-shell">
@@ -40,7 +85,7 @@
           <a href="#uso">Cómo se usa</a>
           <a href="#faq">Preguntas frecuentes</a>
         </nav>
-        <a class="header-cta" href="#cta-final">Conocer GlowAge</a>
+        <a class="header-cta" href="#comprar">Comprar GlowAge</a>
       </header>
 
       <main id="inicio">
@@ -71,7 +116,7 @@
               sensorial.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#producto">Descubrir GlowAge</a>
+              <a class="button button-primary" href="#comprar">Comprar GlowAge</a>
               <a class="button button-secondary" href="#uso">Cómo se usa</a>
             </div>
             <dl class="hero-metrics">
@@ -350,7 +395,7 @@
               </div>
               <div class="showcase-copy">
                 <h3>Silueta del envase</h3>
-                <p>El dorado ámbar y la forma del tubo transmiten tecnología cosmética con calidez.</p>
+                <p>El acabado plata grafito y la forma del tubo transmiten tecnología cosmética con sobriedad.</p>
               </div>
             </article>
             <article class="showcase-card reveal">
@@ -460,11 +505,40 @@
           </div>
         </section>
 
-        <section class="section section-cta" id="cta-final">
-          <div class="cta-card reveal">
-            <p class="eyebrow">Lleva el spa a casa</p>
-            <h2>Descubre GlowAge y convierte tu rutina diaria en una experiencia de lujo accesible.</h2>
-            <a class="button button-primary" href="#inicio">Descubrir GlowAge</a>
+        <section class="section section-cta" id="comprar">
+          <div class="cta-card purchase-card reveal">
+            <div class="purchase-copy">
+              <p class="eyebrow">Lleva el spa a casa</p>
+              <h2>GlowAge llega a tu ritual con envío incluido.</h2>
+              <p>
+                Gel conductor premium de 150 ml para acompañar rutinas con
+                aparatología facial en casa. Precio por pieza con envío incluido
+                en compras de 1 a 5 unidades.
+              </p>
+            </div>
+            <form class="checkout-form" data-checkout-form>
+              <div class="price-lockup">
+                <span>GlowAge 150 ml</span>
+                <strong>$999 MXN</strong>
+                <small>Envío incluido</small>
+              </div>
+              <label class="quantity-field" for="checkout-quantity">
+                <span>Cantidad</span>
+                <select id="checkout-quantity" name="quantity" aria-label="Cantidad de piezas">
+                  <option value="1">1 pieza</option>
+                  <option value="2">2 piezas</option>
+                  <option value="3">3 piezas</option>
+                  <option value="4">4 piezas</option>
+                  <option value="5">5 piezas</option>
+                </select>
+              </label>
+              <button class="button button-primary checkout-button" type="submit">
+                Comprar con Stripe
+              </button>
+              <p class="checkout-note" data-checkout-status>
+                Pago seguro con tarjeta. Recibirás la confirmación por correo.
+              </p>
+            </form>
           </div>
         </section>
       </main>
