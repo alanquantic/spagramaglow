@@ -1444,7 +1444,8 @@ h3 {
 }
 
 .site-footer {
-  margin-top: clamp(3rem, 8vw, 5rem);
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: clamp(3rem, 8vw, 5rem) auto 0;
   padding: clamp(2rem, 5vw, 3rem) 0 2.4rem;
   border-top: 1px solid var(--line-strong);
   display: grid;
