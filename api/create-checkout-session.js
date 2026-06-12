@@ -87,7 +87,7 @@ module.exports = async function handler(req, res) {
       shipping_address_collection: {
         allowed_countries: ["MX"],
       },
-      success_url: `${baseUrl}/gracias.html?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${baseUrl}/gracias.html?session_id={CHECKOUT_SESSION_ID}&qty=${quantity}`,
       cancel_url: `${baseUrl}/compra-cancelada.html`,
       metadata: {
         product: "GlowAge",

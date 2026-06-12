@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F1JYEGVYQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4F1JYEGVYQ');
+    </script>
     <title>Compra confirmada | SPAGRAMA GlowAge</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="theme-color" content="#eef1f4" />
@@ -32,5 +41,45 @@
         </section>
       </div>
     </main>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var sessionId = params.get("session_id");
+        var quantity = Number.parseInt(params.get("qty"), 10);
+
+        if (!sessionId) {
+          return;
+        }
+
+        // Evita duplicar la conversión si el cliente recarga la página.
+        var storageKey = "spagrama_purchase_" + sessionId;
+        try {
+          if (window.localStorage.getItem(storageKey)) {
+            return;
+          }
+          window.localStorage.setItem(storageKey, "1");
+        } catch (error) {
+          // localStorage no disponible; se envía el evento de todas formas.
+        }
+
+        var validQuantity = Number.isInteger(quantity) && quantity > 0 ? quantity : 1;
+
+        gtag("event", "purchase", {
+          transaction_id: sessionId,
+          currency: "MXN",
+          value: validQuantity * 999,
+          shipping: 0,
+          items: [
+            {
+              item_id: "glowage-150ml",
+              item_name: "GlowAge 150 ml",
+              item_brand: "SPAGRAMA",
+              price: 999,
+              quantity: validQuantity,
+            },
+          ],
+        });
+      })();
+    </script>
   </body>
 </html>

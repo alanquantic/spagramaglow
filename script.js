@@ -1,3 +1,9 @@
+function trackEvent(name, params) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, params || {});
+  }
+}
+
 const revealItems = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
@@ -30,8 +36,75 @@ detailItems.forEach((detail) => {
         other.open = false;
       }
     });
+
+    const summary = detail.querySelector("summary");
+    trackEvent("faq_open", {
+      question: summary ? summary.textContent.trim() : "",
+    });
   });
 });
+
+document.querySelectorAll('a[href="#comprar"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    let location = "otros";
+    if (link.classList.contains("header-cta")) {
+      location = "header";
+    } else if (link.closest(".hero-actions")) {
+      location = "hero";
+    }
+
+    trackEvent("cta_comprar_click", { cta_location: location });
+  });
+});
+
+document.querySelectorAll(".site-nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("nav_click", {
+      nav_target: link.getAttribute("href"),
+      nav_label: link.textContent.trim(),
+    });
+  });
+});
+
+const buySection = document.querySelector("#comprar");
+
+if (buySection) {
+  const buyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          trackEvent("view_item", {
+            currency: "MXN",
+            value: 999,
+            items: [
+              {
+                item_id: "glowage-150ml",
+                item_name: "GlowAge 150 ml",
+                item_brand: "SPAGRAMA",
+                price: 999,
+                quantity: 1,
+              },
+            ],
+          });
+          buyObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  buyObserver.observe(buySection);
+}
+
+const quantitySelect = document.querySelector("#checkout-quantity");
+
+if (quantitySelect) {
+  quantitySelect.addEventListener("change", () => {
+    trackEvent("select_quantity", {
+      quantity: Number(quantitySelect.value),
+    });
+  });
+}
 
 const checkoutForm = document.querySelector("[data-checkout-form]");
 
@@ -48,6 +121,20 @@ if (checkoutForm) {
     checkoutButton.disabled = true;
     checkoutButton.textContent = "Abriendo pago seguro...";
     checkoutStatus.textContent = "Estamos preparando tu sesión de pago.";
+
+    trackEvent("begin_checkout", {
+      currency: "MXN",
+      value: quantity * 999,
+      items: [
+        {
+          item_id: "glowage-150ml",
+          item_name: "GlowAge 150 ml",
+          item_brand: "SPAGRAMA",
+          price: 999,
+          quantity,
+        },
+      ],
+    });
 
     try {
       const response = await fetch("/api/create-checkout-session", {
@@ -66,6 +153,7 @@ if (checkoutForm) {
 
       window.location.href = payload.url;
     } catch (error) {
+      trackEvent("checkout_error", { error_message: error.message || "unknown" });
       checkoutButton.disabled = false;
       checkoutButton.textContent = "Comprar con Stripe";
       checkoutStatus.textContent =
