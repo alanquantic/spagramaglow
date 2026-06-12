@@ -105,10 +105,33 @@ if (buySection) {
   buyObserver.observe(buySection);
 }
 
+const UNIT_PRICE_MXN = 299;
 const quantitySelect = document.querySelector("#checkout-quantity");
 
 if (quantitySelect) {
+  const priceAmount = document.querySelector(".price-lockup strong");
+  const priceNote = document.querySelector(".price-lockup small");
+
+  const updatePriceDisplay = () => {
+    const quantity = Number(quantitySelect.value) || 1;
+    const total = quantity * UNIT_PRICE_MXN;
+
+    if (priceAmount) {
+      priceAmount.textContent = `$${total.toLocaleString("es-MX")} MXN`;
+    }
+
+    if (priceNote) {
+      priceNote.textContent =
+        quantity > 1
+          ? `${quantity} piezas × $${UNIT_PRICE_MXN} · Envío incluido`
+          : "Envío incluido";
+    }
+  };
+
+  updatePriceDisplay();
+
   quantitySelect.addEventListener("change", () => {
+    updatePriceDisplay();
     trackEvent("select_quantity", {
       quantity: Number(quantitySelect.value),
     });
