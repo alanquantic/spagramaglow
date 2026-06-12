@@ -1,0 +1,34 @@
+# SPAGRAMA
+
+> SPAGRAMA es una marca mexicana de cuidado facial que lleva la experiencia del spa a casa. Su producto principal es GlowAge, un gel conductor facial premium para aparatología facial (frecuencia galvánica, radiofrecuencia, ultrasonido y microcorrientes).
+
+## Datos clave del producto
+
+- Producto: Gel Conductor Facial GlowAge
+- Marca: SPAGRAMA
+- Presentación: 150 ml
+- Precio: $299 MXN por pieza, con envío incluido a toda la República Mexicana (compras de 1 a 5 piezas)
+- Activos: ácido hialurónico, colágeno, elastina y extracto de hamamelis
+- Compatibilidad: frecuencia galvánica, radiofrecuencia, ultrasonido y dispositivos con microcorrientes
+- Rendimiento: ≈2 ml por sesión de 2 minutos; ≈5 ml por sesión de 5 minutos; el envase dura de 1 a 2 meses de uso constante
+- Uso: aplicar una capa uniforme sobre piel limpia y seca antes de usar el dispositivo facial
+- Tipo: producto cosmético de uso externo; no es medicamento ni dispositivo médico
+- Compra: pago seguro con tarjeta vía Stripe en https://www.spagrama.com/, solo envíos dentro de México
+- Contacto: ventas@spagrama.com
+
+## Páginas principales
+
+- [Inicio](https://www.spagrama.com/): landing de la marca y del producto GlowAge
+- [Gel Conductor Facial GlowAge](https://www.spagrama.com/gel-conductor-facial-glowage.html): página de producto con características completas, rendimiento, ingredientes y compra
+- [Blog](https://www.spagrama.com/blog/): guías sobre gel conductor facial y aparatología
+
+## Guías
+
+- [¿Qué es un gel conductor facial y para qué sirve?](https://www.spagrama.com/blog/que-es-un-gel-conductor-facial.html)
+- [Cómo usar gel conductor facial con aparatología](https://www.spagrama.com/blog/como-usar-gel-conductor-facial-aparatologia.html)
+- [¿Cuánto dura un gel conductor facial?](https://www.spagrama.com/blog/cuanto-dura-gel-conductor-facial.html)
+
+## Legal
+
+- [Aviso de Privacidad](https://www.spagrama.com/aviso-de-privacidad.html)
+- [Términos y Condiciones](https://www.spagrama.com/terminos-y-condiciones.html)
