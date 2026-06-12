@@ -1,6 +1,6 @@
 const Stripe = require("stripe");
 
-const PRODUCT_PRICE_MXN = 99900;
+const PRODUCT_PRICE_MXN = 29900;
 const PRODUCT_NAME = "SPAGRAMA GlowAge 150 ml";
 const PRODUCT_DESCRIPTION =
   "Gel conductor premium para rutinas con aparatología facial en casa.";

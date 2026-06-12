@@ -66,6 +66,15 @@ document.querySelectorAll(".site-nav a").forEach((link) => {
   });
 });
 
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("contact_click", {
+      contact_method: "email",
+      contact_value: link.getAttribute("href").replace("mailto:", ""),
+    });
+  });
+});
+
 const buySection = document.querySelector("#comprar");
 
 if (buySection) {
@@ -75,13 +84,13 @@ if (buySection) {
         if (entry.isIntersecting) {
           trackEvent("view_item", {
             currency: "MXN",
-            value: 999,
+            value: 299,
             items: [
               {
                 item_id: "glowage-150ml",
                 item_name: "GlowAge 150 ml",
                 item_brand: "SPAGRAMA",
-                price: 999,
+                price: 299,
                 quantity: 1,
               },
             ],
@@ -124,13 +133,13 @@ if (checkoutForm) {
 
     trackEvent("begin_checkout", {
       currency: "MXN",
-      value: quantity * 999,
+      value: quantity * 299,
       items: [
         {
           item_id: "glowage-150ml",
           item_name: "GlowAge 150 ml",
           item_brand: "SPAGRAMA",
-          price: 999,
+          price: 299,
           quantity,
         },
       ],
